@@ -1,4 +1,10 @@
 import { Schema, Types, model } from "mongoose";
+import {
+  TOKEN_EMAIL_CONFIRMATION,
+  TOKEN_EMAIL_MFA,
+  TOKEN_EMAIL_ORG_INVITATION,
+  TOKEN_EMAIL_PASSWORD_RESET,
+} from "../variables";
 
 export interface ITokenData {
   type: string;
@@ -16,10 +22,10 @@ const tokenDataSchema = new Schema<ITokenData>({
   type: {
     type: String,
     enum: [
-      "emailConfirmation",
-      "emailMfa",
-      "organizationInvitation",
-      "passwordReset",
+      TOKEN_EMAIL_CONFIRMATION,
+      TOKEN_EMAIL_MFA,
+      TOKEN_EMAIL_ORG_INVITATION,
+      TOKEN_EMAIL_PASSWORD_RESET,
     ],
     required: true,
   },

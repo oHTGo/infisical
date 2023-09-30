@@ -1,5 +1,11 @@
 import { Types } from "mongoose";
 import { createTokenHelper, validateTokenHelper } from "../helpers/token";
+import {
+  TOKEN_EMAIL_CONFIRMATION,
+  TOKEN_EMAIL_MFA,
+  TOKEN_EMAIL_ORG_INVITATION,
+  TOKEN_EMAIL_PASSWORD_RESET,
+} from "../variables";
 
 /**
  * Class to handle token actions
@@ -21,7 +27,11 @@ class TokenService {
         phoneNumber,
         organizationId,
     }: {
-        type: "emailConfirmation" | "emailMfa" | "organizationInvitation" | "passwordReset";
+        type:
+          | typeof TOKEN_EMAIL_CONFIRMATION
+          | typeof TOKEN_EMAIL_MFA
+          | typeof TOKEN_EMAIL_ORG_INVITATION
+          | typeof TOKEN_EMAIL_PASSWORD_RESET;
         email?: string;
         phoneNumber?: string;
         organizationId?: Types.ObjectId;

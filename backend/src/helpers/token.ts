@@ -27,10 +27,10 @@ export const createTokenHelper = async ({
   organizationId,
 }: {
   type:
-    | "emailConfirmation"
-    | "emailMfa"
-    | "organizationInvitation"
-    | "passwordReset";
+    | typeof TOKEN_EMAIL_CONFIRMATION
+    | typeof TOKEN_EMAIL_MFA
+    | typeof TOKEN_EMAIL_ORG_INVITATION
+    | typeof TOKEN_EMAIL_PASSWORD_RESET;
   email?: string;
   phoneNumber?: string;
   organizationId?: Types.ObjectId;
@@ -129,10 +129,10 @@ export const validateTokenHelper = async ({
   token,
 }: {
   type:
-    | "emailConfirmation"
-    | "emailMfa"
-    | "organizationInvitation"
-    | "passwordReset";
+    | typeof TOKEN_EMAIL_CONFIRMATION
+    | typeof TOKEN_EMAIL_MFA
+    | typeof TOKEN_EMAIL_ORG_INVITATION
+    | typeof TOKEN_EMAIL_PASSWORD_RESET;
   email?: string;
   phoneNumber?: string;
   organizationId?: Types.ObjectId;
